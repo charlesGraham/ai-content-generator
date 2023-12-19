@@ -46,7 +46,8 @@ const userSchema = new mongoose.Schema({
   ],
   history: [
     {
-      ref: 'History'
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'ContentHistory'
     }
   ]
 }, {
@@ -54,6 +55,6 @@ const userSchema = new mongoose.Schema({
 });
 
 // compile to build model
-const User = mongoose.mongo('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;
